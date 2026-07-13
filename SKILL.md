@@ -35,3 +35,22 @@ python main.py --screenshot         # 仅截图
 
 - `photos/run_时间戳/` — 每步截图与 AI 视图
 - `logs/log_时间戳.txt` — 详细运行日志
+
+## 示例
+
+```bash
+# 发消息
+python main.py "打开微信，给文件传输助手发送你好"
+
+# 带内容粘贴
+python main.py "在浏览器里打开百度并输入 Python 教程 并搜索"
+
+# 多步骤任务
+python main.py "打开记事本，输入 hello world，保存到桌面"
+
+# 分析当前界面
+python main.py --analyze "这个窗口有哪些可以点击的按钮？"
+
+# 仅截图
+python main.py --screenshot
+```
