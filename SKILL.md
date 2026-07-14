@@ -18,16 +18,18 @@ python main.py --screenshot         # 仅截图
 
 ## 工作流程
 
-1. 全屏截图叠加 9×9 网格，AI 选定目标区域
-2. 放大该区域叠加 8×8 网格，AI 精确定位并决定动作
-3. 执行点击 / 粘贴 / 滚动等动作，循环直到任务完成
+1. 全屏截图，并用 UI Automation 枚举可见控件，叠加红色框与绿色编号（Set-of-Marks）
+2. AI 根据编号选择目标控件并决定动作（点击 / 粘贴 / 滚动等）
+3. 执行动作，循环直到任务完成
 
 ## 配置
 
 复制 `.env.example` 为 `.env` 并填入：
 
 - `API_BASE` / `MODEL` / `API_KEY` — 模型接入
-- `API_REASONING_1/2/ANALYZE` — 思考开关（`disabled` 关，`high`/`medium`/`low` 开）
+- `API_REASONING_1` — 控件选择步思考开关（`disabled` 关，`high`/`medium`/`low`/`enabled` 开）
+- `API_REASONING_2` — 预留（当前未使用，必填可填 `disabled`）
+- `API_REASONING_ANALYZE` — 分析步思考开关
 - `API_WAIT_MAX` — AI 可控最大等待秒数
 - `MAX_STEPS` — 最大执行步数
 
